@@ -1,7 +1,10 @@
 import streamlit as st
 from PIL import Image
 
-# --- CSS DO TEMA DARK GRIMÓRIO REAL ---
+# --- ÍCONE CENTRALIZADO NO TOPO ---
+st.image("icon.png", width=100)
+
+# --- ESTILO DARK GRIMÓRIO REAL ---
 st.markdown("""
 <style>
 
@@ -16,16 +19,6 @@ st.markdown("""
         font-family: "Garamond", serif;
     }
 
-    /* Ícone alinhado à esquerda */
-    .icon-container {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-bottom: -10px;
-        margin-top: -10px;
-    }
-
-    /* Títulos dourados */
     h1, h2, h3, h4 {
         color: #d8b46a !important;
         text-shadow: 0px 0px 8px rgba(216,180,106,0.45);
@@ -40,12 +33,10 @@ st.markdown("""
         background: linear-gradient(to right, transparent, #d8b46a, transparent);
     }
 
-    /* Texto geral */
     p, label, span, div {
         color: #eae6d9 !important;
     }
 
-    /* Inputs */
     .stTextInput > div > div > input {
         background: #1a1d2f !important;
         border-radius: 8px !important;
@@ -55,7 +46,6 @@ st.markdown("""
         font-weight: 600;
     }
 
-    /* Selectbox */
     .stSelectbox > div > div {
         background: #1a1d2f !important;
         border-radius: 8px !important;
@@ -70,7 +60,6 @@ st.markdown("""
         border: 1px solid #d8b46a !important;
     }
 
-    /* Botão dourado */
     div.stButton > button {
         background-color: #d8b46a;
         color: #0d1021;
@@ -91,7 +80,6 @@ st.markdown("""
         box-shadow: 0px 5px 14px rgba(216,180,106,0.65);
     }
 
-    /* Separadores dourados */
     hr {
         border: 0;
         height: 2px;
@@ -100,7 +88,6 @@ st.markdown("""
         background: linear-gradient(to right, transparent, #d8b46a, transparent);
     }
 
-    /* Cards */
     .royal-card {
         background: #151726;
         border: 2px solid #d8b46a;
@@ -120,12 +107,6 @@ st.markdown("""
 
 </style>
 """, unsafe_allow_html=True)
-
-
-
-# --- ÍCONE ALINHADO À ESQUERDA (FUNCIONANDO) ---
-st.markdown('<div class="icon-container"><img src="icon.png" width="90"></div>', unsafe_allow_html=True)
-
 
 
 # -------------------- LÓGICA DAS RAÇAS --------------------
@@ -154,7 +135,6 @@ DICT_RACAS = {
     "Vampiro Transformado": 0.083,
     "Abissal": 0.04
 }
-
 
 
 # -------------------- INTERFACE --------------------
@@ -187,14 +167,12 @@ if st.button("✨ Calcular"):
         st.markdown("<hr>", unsafe_allow_html=True)
         st.subheader("🏅 Resultados")
 
-        # Card 1
         st.markdown('<div class="royal-card">', unsafe_allow_html=True)
         st.write(f"### 👤 PAI/MÃE ({raca_pai})")
         st.write(f"- Idade Real: **{idade_pai} anos**")
         st.write(f"- Equivalente Humano: **{idade_conv_pai} anos**")
         st.markdown('</div>', unsafe_allow_html=True)
 
-        # Card 2
         st.markdown('<div class="royal-card">', unsafe_allow_html=True)
         st.write(f"### 👶 FILHO ({raca_filho})")
         st.write(f"- Idade Real: **{idade_filho} anos**")
