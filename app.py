@@ -1,15 +1,20 @@
 import streamlit as st
-from PIL import Image
 
-# --- ÍCONE CENTRALIZADO NO TOPO ---
-st.markdown(
-    """
-    <div style="display: flex; justify-content: center; margin-top: -10px; margin-bottom: 5px;">
-        <img src="icon.png" width="110">
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+# --- CSS PARA CENTRALIZAR QUALQUER st.image() ---
+st.markdown("""
+<style>
+    .centered-image img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# --- ÍCONE CENTRALIZADO ---
+st.markdown('<div class="centered-image">', unsafe_allow_html=True)
+st.image("icon.png", width=110)
+st.markdown('</div>', unsafe_allow_html=True)
 
 # --- ESTILO DARK GRIMÓRIO REAL ---
 st.markdown("""
@@ -114,7 +119,6 @@ st.markdown("""
 
 </style>
 """, unsafe_allow_html=True)
-
 
 
 # -------------------- LÓGICA DAS RAÇAS --------------------
