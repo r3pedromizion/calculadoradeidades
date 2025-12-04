@@ -5,105 +5,120 @@ from PIL import Image
 icon = Image.open("icon.png")
 st.image(icon, width=100)
 
-# --- ESTILO: “GRIMÓRIO REAL” (AZUL + DOURADO) ---
+# --- ESTILO DARK GRIMÓRIO REAL ---
 st.markdown("""
-    <style>
+<style>
 
-        /* Fundo com pergaminho mágico */
-        body {
-            background: #f3efe4;
-        }
+    /* Fundo arcano profundo */
+    body {
+        background: #0d1021;
+    }
 
-        /* Container geral com textura suave */
-        .stApp {
-            background: linear-gradient(180deg, #fbf7ee 0%, #e8e0cf 40%, #f6f2e8 100%);
-            padding: 20px;
-            color: #2d2d2d;
-            font-family: "Garamond", serif;
-        }
+    /* Container com leve textura e brilho suave */
+    .stApp {
+        background: linear-gradient(180deg, #121527 0%, #0d1021 60%, #101323 100%);
+        padding: 20px;
+        color: #eae6d9 !important;
+        font-family: "Garamond", serif;
+    }
 
-        /* Títulos azul-royal */
-        h1, h2, h3, h4 {
-            color: #1c3f7c !important;
-            text-shadow: 0px 0px 6px rgba(28,63,124,0.3);
-            font-family: "Palatino Linotype", "Georgia", serif;
-        }
+    /* Títulos dourado + azul profundo */
+    h1, h2, h3, h4 {
+        color: #d8b46a !important;
+        text-shadow: 0px 0px 8px rgba(216,180,106,0.45);
+        font-family: "Palatino Linotype", "Georgia", serif;
+    }
 
-        /* Ornamento dourado acima e abaixo do título */
-        h1::before, h1::after {
-            content: "";
-            display: block;
-            height: 3px;
-            margin: 6px 0;
-            background: linear-gradient(to right, transparent, #d8b46a, transparent);
-        }
+    /* Ornamento dourado acima e abaixo do título */
+    h1::before, h1::after {
+        content: "";
+        display: block;
+        height: 3px;
+        margin: 8px 0;
+        background: linear-gradient(to right, transparent, #d8b46a, transparent);
+    }
 
-        /* Inputs com moldura dourada */
-        .stTextInput > div > div > input {
-            background: #ffffff !important;
-            border-radius: 8px !important;
-            border: 2px solid #d8b46a !important;
-            padding: 8px !important;
-        }
+    /* Texto comum */
+    p, label, span, div {
+        color: #eae6d9 !important;
+    }
 
-        /* Selectbox estilizado */
-        .stSelectbox > div > div {
-            background: #ffffff !important;
-            border-radius: 8px !important;
-            border: 2px solid #d8b46a !important;
-            box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
-        }
+    /* Inputs */
+    .stTextInput > div > div > input {
+        background: #1a1d2f !important;
+        border-radius: 8px !important;
+        border: 2px solid #d8b46a !important;
+        padding: 8px !important;
+        color: #f5f2e8 !important;
+        font-weight: 600;
+    }
 
-        /* Botão dourado mágico */
-        div.stButton > button {
-            background-color: #d8b46a;
-            color: #fff;
-            border-radius: 10px;
-            border: none;
-            padding: 10px 22px;
-            font-size: 18px;
-            font-family: "Georgia", serif;
-            font-weight: bold;
-            box-shadow: 0px 3px 7px rgba(140,110,60,0.5),
-                        inset 0px 0px 6px rgba(255,255,255,0.5);
-            transition: 0.15s ease-in-out;
-        }
+    /* Selectbox */
+    .stSelectbox > div > div {
+        background: #1a1d2f !important;
+        border-radius: 8px !important;
+        border: 2px solid #d8b46a !important;
+        color: #f5f2e8 !important;
+        box-shadow: 0px 2px 8px rgba(0,0,0,0.4);
+    }
 
-        div.stButton > button:hover {
-            background-color: #e5c787;
-            transform: scale(1.05);
-            box-shadow: 0px 4px 10px rgba(140,110,60,0.7),
-                        inset 0px 0px 8px rgba(255,255,255,0.7);
-        }
+    /* Dropdown menu */
+    .css-26l3qy-menu, .stDropdown > div {
+        background: #151726 !important;
+        color: #f5f2e8 !important;
+        border: 1px solid #d8b46a !important;
+    }
 
-        /* Separadores estrelados */
-        hr {
-            border: 0;
-            height: 2px;
-            margin-top: 25px;
-            margin-bottom: 25px;
-            background: linear-gradient(to right, transparent, #d8b46a, transparent);
-        }
+    /* Botão dourado */
+    div.stButton > button {
+        background-color: #d8b46a;
+        color: #0d1021;
+        border-radius: 10px;
+        border: none;
+        padding: 10px 24px;
+        font-size: 18px;
+        font-family: "Georgia", serif;
+        font-weight: bold;
+        box-shadow: 0px 3px 10px rgba(216,180,106,0.5),
+                    inset 0px 0px 6px rgba(255,255,255,0.5);
+        transition: 0.15s ease-in-out;
+    }
 
-        /* Card com moldura dourada */
-        .royal-card {
-            background: #fefcf7;
-            border: 2px solid #d8b46a;
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 0 12px rgba(216,180,106,0.3);
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
+    div.stButton > button:hover {
+        background-color: #e7ca90;
+        transform: scale(1.05);
+        box-shadow: 0px 5px 14px rgba(216,180,106,0.65);
+    }
 
-        /* Mensagem de erro estilizada */
-        .stAlert {
-            background: #fff3d6 !important;
-            color: #7a5f32 !important;
-            border-left: 5px solid #d8b46a !important;
-        }
+    /* Separadores dourados */
+    hr {
+        border: 0;
+        height: 2px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        background: linear-gradient(to right, transparent, #d8b46a, transparent);
+    }
 
-    </style>
+    /* Cards com moldura de grimório */
+    .royal-card {
+        background: #151726;
+        border: 2px solid #d8b46a;
+        border-radius: 12px;
+        padding: 15px;
+        color: #f1ede3 !important;
+        box-shadow: 0 0 14px rgba(216,180,106,0.25);
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* Alertas */
+    .stAlert {
+        background: #3a2e14 !important;
+        color: #f1ddae !important;
+        border-left: 5px solid #d8b46a !important;
+    }
+
+</style>
 """, unsafe_allow_html=True)
 
 
@@ -122,7 +137,6 @@ class Raca:
             return idade_convertida_int
         except ValueError:
             return None
-
 
 
 # -------------------- RAÇAS --------------------
@@ -144,7 +158,7 @@ DICT_RACAS = {
 # -------------------- INTERFACE --------------------
 
 st.title("📘✨ Calculadora de Idades Inter-Raciais ✨📘")
-st.caption("Um grimório real para converter idades entre raças fantásticas — com a elegância azul e dourada da realeza arcana.")
+st.caption("Uma ferramenta arcana para decifrar equivalências entre eras e raças — versão Grimório Real Dark.")
 
 st.subheader("📜 Escolha as Raças")
 
