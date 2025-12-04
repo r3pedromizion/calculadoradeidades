@@ -2,7 +2,14 @@ import streamlit as st
 from PIL import Image
 
 # --- ÍCONE CENTRALIZADO NO TOPO ---
-st.image("icon.png", width=100)
+st.markdown(
+    """
+    <div style="display: flex; justify-content: center; margin-top: -10px; margin-bottom: 5px;">
+        <img src="icon.png" width="110">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # --- ESTILO DARK GRIMÓRIO REAL ---
 st.markdown("""
@@ -107,6 +114,7 @@ st.markdown("""
 
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # -------------------- LÓGICA DAS RAÇAS --------------------
