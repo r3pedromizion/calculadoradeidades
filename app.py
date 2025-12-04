@@ -106,7 +106,7 @@ DICT_RACAS = {
 
 # -------------------- INTERFACE STREAMLIT --------------------
 
-st.title("🌙✨ Calculadora de Idades Inter-Raciais — Dark Edition ✨🌙")
+st.title("🌙✨ Calculadora de Idades Inter-Raciais")
 st.write("Entre nas sombras do conhecimento místico e descubra as idades equivalentes entre raças fantásticas. 🖤")
 
 st.subheader("🦇 Escolha as Raças")
@@ -144,3 +144,4 @@ if st.button("🔮 Calcular"):
         st.markdown("---")
         st.write(f"## 🖤 Diferença de Idade Humana: **{diferenca} anos** 🖤")
         st.markdown("---")
+
