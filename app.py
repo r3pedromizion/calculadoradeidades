@@ -1,4 +1,10 @@
 import streamlit as st
+from PIL import Image
+
+# --- ÍCONE NO TOPO (ESQUERDA) ---
+icon = Image.open("icon.png")
+st.image(icon, width=80)
+
 
 # 🌙 --- ESTILO DARK OBSCURO (CSS) ---
 st.markdown("""
@@ -144,4 +150,5 @@ if st.button("🔮 Calcular"):
         st.markdown("---")
         st.write(f"## 🖤 Diferença de Idade Humana: **{diferenca} anos** 🖤")
         st.markdown("---")
+
 
