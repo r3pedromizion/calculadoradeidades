@@ -3,7 +3,12 @@ from PIL import Image
 
 # --- ÍCONE NO TOPO ---
 icon = Image.open("icon.png")
-st.image(icon, width=100)
+st.markdown("""
+<div class="icon-container">
+    <img src="icon.png" width="90">
+</div>
+""", unsafe_allow_html=True)
+
 
 # --- ESTILO DARK GRIMÓRIO REAL ---
 st.markdown("""
@@ -118,6 +123,14 @@ st.markdown("""
         border-left: 5px solid #d8b46a !important;
     }
 
+    .icon-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 5px;
+    margin-bottom: -10px;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -200,3 +213,4 @@ if st.button("✨ Calcular"):
         st.markdown("<hr>", unsafe_allow_html=True)
         st.write(f"## 👑 Diferença de Idade Humana: **{diferenca} anos** 👑")
         st.markdown("<hr>", unsafe_allow_html=True)
+
